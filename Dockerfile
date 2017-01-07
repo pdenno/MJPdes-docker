@@ -16,7 +16,7 @@ RUN curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
 RUN chmod a+x /usr/bin/lein
 RUN lein self-install
 
-# Install MJPdes (I'll fork this before adding the compute stuff.)
+# Install MJPdes 
 RUN git clone https://github.com/usnistgov/MJPdes.git
 WORKDIR $MJPDES_PATH
 RUN lein deps
