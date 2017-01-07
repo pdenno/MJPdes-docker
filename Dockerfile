@@ -10,7 +10,7 @@ ENV LEIN_ROOT=1
 #RUN echo "deb     http://ppa.launchpad.net/mikegedelman/leiningen-git-stable/ubuntu trusty main" >> /etc/apt/sources.list
 #RUN echo "deb-src http://ppa.launchpad.net/mikegedelman/leiningen-git-stable/ubuntu trusty main" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get install -yq curl default-jre 
+RUN apt-get update && apt-get install -yq curl default-jre git
 
 RUN curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > /usr/bin/lein
 RUN chmod a+x /usr/bin/lein
@@ -22,7 +22,9 @@ WORKDIR $MJPDES_PATH
 RUN lein deps
 RUN lein bin
 
-#VOLUME $RESULTS_PATH
-CMD target/MJPdes resources/example.clj > $RESULTS_PATH/results.clj
+VOLUME $RESULTS_PATH
+RUN target/MJPdes resources/example.clj > $RESULTS_PATH/results.clj
+
+
 
 
