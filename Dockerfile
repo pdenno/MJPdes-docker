@@ -15,7 +15,7 @@ WORKDIR $MJPDES_PATH
 RUN lein deps
 RUN lein bin
 
-ENTRYPOINT ["target/MJPdes"]
+ENTRYPOINT ["./target/MJPdes"]
 
 
 
