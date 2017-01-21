@@ -16,7 +16,8 @@ RUN lein deps
 RUN lein bin
 
 COPY ./docker-entrypoint.sh /
-ENTRYPOINT ["./docker-entrypoint.sh"]
+RUN chmod a+x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 
 
