@@ -15,6 +15,9 @@ WORKDIR $MJPDES_PATH
 RUN lein deps
 RUN lein bin
 
+RUN mkdir /probvol
+VOLUME /probvol
+
 COPY ./docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
