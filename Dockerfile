@@ -15,7 +15,8 @@ WORKDIR $MJPDES_PATH
 RUN lein deps
 RUN lein bin
 
-ENTRYPOINT ["./target/MJPdes"]
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["./docker-entrypoint.sh"]
 
 
 
